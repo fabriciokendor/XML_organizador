@@ -1,6 +1,8 @@
 Esse arquivo que organiza XMl está em constante aperfeiçoamento
 
-As maiores dificuldades que tive em desenvolver esse script foi na
+As maiores dificuldades que tive em desenvolver esse script foi testar as bibliotecas xml.etree.ElementTree e Shutil.
+Biblioteca xml tive que entender o funcionamento de como ela se comportava ao pesquisar o XMl.
+um erro que levou um bom tempo para descobrir foi o espaçamento nos xmls que não tinha no início das Nf-e.
 
 Os XMLS consistes em 
 - NF-e

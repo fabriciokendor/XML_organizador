@@ -9,7 +9,7 @@ def solicitar_caminho(mensagem):
         if os.path.exists(caminho):
             return caminho
         else:
-            print("⚠ Caminho inválido. Tente novamente.")
+            print("Caminho inválido. Tente novamente.")
 
 def obter_dados_nota(caminho_arquivo):
     """
@@ -77,30 +77,30 @@ def organizar_notas(pasta_origem, pasta_destino):
         empresa, ano, mes, dia, tipo_nota = obter_dados_nota(caminho_arquivo)
 
         if tipo_nota == "Evento":
-            # Pasta para eventos de NF-e
+         # Pasta para eventos de NF-e
             caminho_final = os.path.join(pasta_destino, "Eventos")
             os.makedirs(caminho_final, exist_ok=True)
             destino_final = os.path.join(caminho_final, arquivo)
             shutil.move(caminho_arquivo, destino_final)
-            print(f"📂 Evento NF {arquivo} movido para {destino_final}")
+            print(f"Evento NF {arquivo} movido para {destino_final}")
 
         elif empresa and ano and mes and dia and tipo_nota:
-            # Criando estrutura de diretórios para notas fiscais normais
+       # Criando estrutura de diretórios para notas fiscais normais
             caminho_final = os.path.join(pasta_destino, empresa, ano, mes, dia, tipo_nota)
             os.makedirs(caminho_final, exist_ok=True)
             destino_final = os.path.join(caminho_final, arquivo)
             shutil.move(caminho_arquivo, destino_final)
-            print(f"✔ Nota {arquivo} ({tipo_nota}) movida para {destino_final}")
+            print(f"Nota {arquivo} ({tipo_nota}) movida para {destino_final}")
         else:
-            print(f"⚠ Não foi possível processar: {arquivo}")
+            print(f"Não foi possível processar: {arquivo}")
 
 if __name__ == "__main__":
-    print("📂 Organizador de Notas Fiscais XML 📂")
+    print("Organizador de Notas Fiscais XML")
     print("Este programa ajudará a organizar suas notas fiscais separando por empresa, data e tipo (Entrada/Saída/Eventos).\n")
 
-    pasta_origem = solicitar_caminho("Digite o caminho da pasta onde estão os arquivos XML: ")
+     pasta_origem = solicitar_caminho("Digite o caminho da pasta onde estão os arquivos XML: ")
     pasta_destino = solicitar_caminho("Digite o caminho onde deseja salvar os arquivos organizados: ")
 
     organizar_notas(pasta_origem, pasta_destino)
 
-    print("\n✅ Organização concluída!")
+    print("\nOrganização concluída!")

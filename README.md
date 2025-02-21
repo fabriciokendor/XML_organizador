@@ -1,9 +1,12 @@
 Esse arquivo que organiza XMl está em constante aperfeiçoamento
-Os XMLS consiste em 
-NF-e
-CT-e
-Cupom fiscal
-e Eventos
+
+As maiores dificuldades que tive em desenvolver esse script foi na
+
+Os XMLS consistes em 
+- NF-e
+- CT-e
+- Cupom fiscal
+- Eventos
 
 Motivo do desenvolvimento:
 Trabalho comom TI em um escritório de contabilidade, vendo a dificuldade na hora da importação de arquivos XMLs por parte 

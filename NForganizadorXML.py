@@ -9,23 +9,21 @@ def solicitar_caminho(mensagem):
         if os.path.exists(caminho):
             return caminho
         else:
-            print("Caminho inválido. Tente novamente.")
+             print("Caminho inválido. Tente novamente.")
 
 def obter_dados_nota(caminho_arquivo):
-    """
-    Lê o XML e tenta extrair as informações:
+    """ Lê o XML e tenta extrair as informações:
     - Nome da empresa
     - Data de emissão
-    - Tipo de nota (Entrada/Saída) ou se é um Evento de NF-e
-    """
+    - Tipo de nota (Entrada/Saída) ou se é um Evento de NF-e   """
     try:
         tree = ET.parse(caminho_arquivo)
         root = tree.getroot()
 
-        # Tratamento para namespaces
+        # Tratar  namespaces
         namespace = {'nfe': 'http://www.portalfiscal.inf.br/nfe'}
 
-        # Verifica se é um EVENTO (ex: Carta de Correção, Cancelamento)
+        # Verificar se é um EVENTO (ex: Carta de Correção, Cancelamento)
         if root.tag.endswith("procEventoNFe"):
             return None, None, None, None, "Evento"
 
@@ -59,10 +57,10 @@ def obter_dados_nota(caminho_arquivo):
         return None, None, None, None, None
 
 def organizar_notas(pasta_origem, pasta_destino):
-    """
-    Percorre os arquivos XML na pasta origem, extrai os dados e move para a pasta destino.
-    Se for um Evento de NF-e, organiza na pasta "Eventos".
-    """
+    
+    """    Percorre os arquivos XML na pasta origem, extrai os dados e move para a pasta destino.
+    Se for um Evento de NF-e, organiza na pasta "Eventos".    """
+    
     if not os.path.exists(pasta_destino):
         os.makedirs(pasta_destino)
 
